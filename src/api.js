@@ -4,8 +4,7 @@ const AxiosClient = axios.create({
   timeout: 8000,
   headers: {
     Accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMmVhYzQyYzk3M2IzM2QzMDc5ZjliMjRjMjhiMTAwNyIsInN1YiI6IjY0ZWZiY2MyOTdhNGU2MDBlMWEyNWY4MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OqrJASIQd_qkONIJBi_UXtjZScmvrhL78oH3P4r6q-0",
+    Authorization: `Bearer ${import.meta.env.ACCESS_TOKEN}`,
   },
 });
 // API Call
