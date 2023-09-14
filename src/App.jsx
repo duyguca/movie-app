@@ -1,15 +1,30 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment } from "./features/counter/counterSlice";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <div>
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
+    </div>
   );
 }
 
