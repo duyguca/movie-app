@@ -6,7 +6,10 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #0a0b0d;
 }
-
+.slick-dots li {
+  background-color: White !important;
+  border-radius: 50%;
+}
 .slick-dots li.slick-active button:before {
-  color: White !important;
+  background-color: pink !important;
 }
