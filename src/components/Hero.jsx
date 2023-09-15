@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { getPopularMovies } from "../api";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 const settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 2000,
   cssEase: "linear",
   adaptiveHeight: true,
 };
 
 function Hero() {
+  const slider = useRef();
   const [movies, setMovies] = useState([]);
-
-  const movie = movies[Math.floor(Math.random() * movies?.length)];
 
   useEffect(() => {
     const fetchPopularMovies = async () => {
@@ -25,13 +26,13 @@ function Hero() {
       setMovies(movies.results);
     };
     fetchPopularMovies();
-  }, [movies]);
-
+  }, []);
+  console.log(slider.current);
   return (
     <div className="h-[600px]">
-      <Slider {...settings}>
+      <Slider {...settings} ref={slider}>
         {movies.slice(0, 5).map((movie, i) => (
-          <div className="w-full h-[400px] relative overflow-hidden">
+          <div key={i} className="w-full h-[400px] relative overflow-hidden">
             <img
               className="w-full h-full object-cover object-cover"
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
@@ -42,12 +43,37 @@ function Hero() {
               {" "}
               {movie.title}
             </h2>
+
             {/* <p className="absolute text-xl font-bold bottom-[100px] text-white z-10001 left-0">
               {movie.overview}
             </p> */}
           </div>
         ))}
       </Slider>
+      <div className="text-center">
+        <button
+          className="text-white p-6"
+          onClick={() => {
+            slider?.current?.slickNext();
+          }}
+        >
+          <AiOutlineArrowLeft size={35} />
+        </button>
+        {movies.slice(0, 5).map((_, i) => (
+          <button
+            className="text-white w-2 h-2 hover:bg-red-600 mb-3 hover:scale-200 cursor-pointer p-1 m-3 text-center bg-white rounded text-xl transition duration-150 ease-out hover:ease-in"
+            onClick={() => slider?.current?.slickGoTo(i)}
+          ></button>
+        ))}
+        <button
+          className="text-white p-6"
+          onClick={() => {
+            slider?.current?.slickNext();
+          }}
+        >
+          <AiOutlineArrowRight size={35} />
+        </button>
+      </div>
     </div>
   );
 }

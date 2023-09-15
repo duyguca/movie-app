@@ -4,7 +4,7 @@ const AxiosClient = axios.create({
   timeout: 8000,
   headers: {
     Accept: "application/json",
-    Authorization: `Bearer ${import.meta.env.ACCESS_TOKEN}`,
+    Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
   },
 });
 // API Call
