@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundColor: "#0a0b0d",
+      "bg-primary": "#0a0b0d",
     },
   },
   plugins: [],
