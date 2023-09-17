@@ -54,7 +54,7 @@ function Hero() {
       </Slider>
 
       <div className="relative -mt-12 bg-gradient-to-t from-[#0a0b0d] via-[rgba(10,11,13,1)] to-[rgba(10,11,13,0.03)]">
-        <div className="text-center flex items-center justify-center">
+        <div className="flex items-center justify-center">
           <button
             className="text-white p-6"
             onClick={() => {

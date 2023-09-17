@@ -9,8 +9,21 @@ const AxiosClient = axios.create({
 });
 // API Call
 export const getPopularMovies = async () => {
-  const response = await AxiosClient.get(
-    "/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
-  );
+  const response = await AxiosClient.get("/3/movie/popular");
+  return response.data;
+};
+
+export const getTopRatedMovies = async () => {
+  const response = await AxiosClient.get("/3/movie/top_rated");
+  return response.data;
+};
+
+export const getNowPlayingMovies = async () => {
+  const response = await AxiosClient.get("/3/movie/now_playing");
+  return response.data;
+};
+
+export const getUpComingMovies = async () => {
+  const response = await AxiosClient.get("/3/movie/upcoming");
   return response.data;
 };
