@@ -27,3 +27,7 @@ export const getUpComingMovies = async () => {
   const response = await AxiosClient.get("/3/movie/upcoming");
   return response.data;
 };
+export const getMovieDetails = async (movieId) => {
+  const response = await AxiosClient.get(`/3/movie/${movieId}`);
+  return response.data;
+};
