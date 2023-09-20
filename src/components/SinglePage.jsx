@@ -11,6 +11,7 @@ function SinglePage() {
   const dispatch = useDispatch();
   const { favoriteList } = useSelector((state) => state.favorite);
   const [currentMovie, setCurrentMovie] = useState(null);
+
   const isFav = checkIsFav(favoriteList, currentMovie);
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function SinglePage() {
         />
       </div>
 
-      <div className="text-white  mx-auto max-w-[75rem] my-16">
+      <div className="text-white  mx-auto max-w-[75rem] my-16 ">
         <div className="flex items-center justify-center">
           <div>
             <img
@@ -40,8 +41,8 @@ function SinglePage() {
               alt={currentMovie?.title}
             />
           </div>
-          <div className="px-14 max-w-[500px]">
-            <h1 className="text-4xl py-12 ">{currentMovie?.original_title}</h1>
+          <div className="px-14 max-w-[500px] relative">
+            <h1 className="text-4xl pb-8 ">{currentMovie?.original_title}</h1>
             <p className="font-light text-sm">{currentMovie?.overview}</p>
             <span className="text-xs block py-4 font-bold">
               Release Date: {currentMovie?.release_date}
@@ -49,6 +50,20 @@ function SinglePage() {
             <span className="text-xs block font-bold">
               Run Time: {currentMovie?.runtime} min
             </span>
+            <button
+              onClick={() => {
+                return isFav
+                  ? dispatch(removeFavorite({ movie: currentMovie }))
+                  : dispatch(addFavorite({ movie: currentMovie }));
+              }}
+            >
+              <BsSuitHeartFill
+                className={`absolute -bottom-12 left-14 ${
+                  isFav ? `text-red-800` : `text-white`
+                }`}
+                size={40}
+              />
+            </button>
             <div className="">
               <span className="text-xs font-bold">Genres:</span>
               {currentMovie?.genres.map((genre, i) => {
@@ -59,20 +74,6 @@ function SinglePage() {
                 );
               })}
             </div>
-            <button
-              onClick={() => {
-                return isFav
-                  ? dispatch(removeFavorite({ movie: currentMovie }))
-                  : dispatch(addFavorite({ movie: currentMovie }));
-              }}
-            >
-              <BsSuitHeartFill
-                className={`absolute top-2 right-2 ${
-                  isFav ? `text-red-800` : `text-white`
-                }`}
-                size={40}
-              />
-            </button>
           </div>
         </div>
       </div>
