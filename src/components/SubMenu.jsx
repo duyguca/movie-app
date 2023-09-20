@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function SubMenu({ movieCategory, setMovieCategory }) {
   const handleCategoryChange = (event) => {
@@ -59,6 +60,9 @@ function SubMenu({ movieCategory, setMovieCategory }) {
           placeholder="Search..."
           type="text"
         /> */}
+        <Link to="/favourites">
+          <button>Go favs</button>
+        </Link>
       </div>
     </>
   );

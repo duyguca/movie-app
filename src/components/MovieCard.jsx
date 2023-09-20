@@ -1,8 +1,9 @@
-import React from "react";
-import { FaRegHeart } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { BsSuitHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addFavorite } from "../features/favoriteSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../features/favoriteSlice";
+import { checkIsFav } from "../utils";
 
 const truncateString = (str, num) => {
   if (str?.length > num) {
@@ -14,15 +15,18 @@ const truncateString = (str, num) => {
 
 function MovieCard({ movie }) {
   const dispatch = useDispatch();
+  const { favoriteList } = useSelector((state) => state.favorite);
+  const isFavorite = checkIsFav(favoriteList, movie);
 
   return (
-    <div className="group relative cursor-pointer ">
+    <div className="group relative">
       <img
+        className="group-hover:blur-sm"
         src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
         alt={movie?.title}
       />
 
-      <div className="absolute top-[100%] left-0 right-0 bg-gradient-to-b from-purple-500 to-pink-500 overflow-hidden w-full h-0 transition-all duration-500 group-hover:top-0 group-hover:h-full group-hover:p-4 hover:opacity-90 flex flex-col justify-end">
+      <div className=" absolute left-0 top-0 bg-gradient-to-b from-black to-grey overflow-hidden w-full opacity-0 transition-all duration-200 ease-in bg-[rgb(0 0 0, .7] h-full flex justify-end flex-col p-6 group-hover:opacity-100 ">
         <div>
           <h2 className="text-white text-md font-bold">
             {movie?.original_title}
@@ -34,18 +38,25 @@ function MovieCard({ movie }) {
           </p>
         </div>
         <Link to={`/movie/${movie.id}`}>
-          <a className="border-b-4 border-#1985FF text-sm  text-white border-none ">
+          <button className="border-b-4 border-#1985FF text-sm cursir-pointer text-white border-none px-4 py-2 my-3 bg-red-700 ">
             More Info
-          </a>
+          </button>
         </Link>
-        <button onClick={() => dispatch(addFavorite({ movie }))}>
-          <FaRegHeart className="absolute top-2 right-2 text-white" size={40} />
+        <button
+          onClick={() => {
+            isFavorite
+              ? dispatch(removeFavorite({ movie }))
+              : dispatch(addFavorite({ movie }));
+          }}
+        >
+          <BsSuitHeartFill
+            className={`absolute top-2 right-2 ${
+              isFavorite ? "text-red-700" : "text-white"
+            }`}
+            size={40}
+          />
         </button>
       </div>
-
-      {/* <button onClick={() => dispatch(addFavorite({ movie }))}>
-        Add favorite
-      </button> */}
     </div>
   );
 }
