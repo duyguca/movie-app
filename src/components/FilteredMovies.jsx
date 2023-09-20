@@ -27,7 +27,7 @@ function FilteredMovies() {
     fetchMovies();
   }, [movieCategory]);
 
-  console.log({ movieCategory });
+  // console.log({ movieCategory });
 
   return (
     <div>

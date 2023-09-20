@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { getMovieDetails } from "../api";
 import { useParams } from "react-router-dom";
-import { FaRegHeart } from "react-icons/fa";
+import { BsSuitHeartFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../features/favoriteSlice";
+import { checkIsFav } from "../utils";
 
 function SinglePage() {
   const { movieId } = useParams();
-  //   console.log(movieId);
-
+  const dispatch = useDispatch();
+  const { favoriteList } = useSelector((state) => state.favorite);
   const [currentMovie, setCurrentMovie] = useState(null);
+  const isFav = checkIsFav(favoriteList, currentMovie);
+
   useEffect(() => {
     const fetchSingleMovie = async () => {
-      //   console.log("ssk2", movieId);
       const movie = await getMovieDetails(movieId);
       setCurrentMovie(movie);
     };
     fetchSingleMovie();
-    // console.log("ssk", movieId);
   }, []);
-  console.log(currentMovie?.genres);
+
   return (
     <>
       <div className="w-full h-full ">
@@ -56,8 +59,19 @@ function SinglePage() {
                 );
               })}
             </div>
-            <button>
-              <FaRegHeart className=" text-white mr-6 my-6" size={40} />
+            <button
+              onClick={() => {
+                return isFav
+                  ? dispatch(removeFavorite({ movie: currentMovie }))
+                  : dispatch(addFavorite({ movie: currentMovie }));
+              }}
+            >
+              <BsSuitHeartFill
+                className={`absolute top-2 right-2 ${
+                  isFav ? `text-red-800` : `text-white`
+                }`}
+                size={40}
+              />
             </button>
           </div>
         </div>
