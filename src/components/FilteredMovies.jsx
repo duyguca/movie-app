@@ -17,7 +17,7 @@ const mapApiRequest = {
 
 function FilteredMovies() {
   const [filteredMovies, setFilteredMovies] = useState([]);
-  const [movieCategory, setMovieCategory] = useState("now_playing");
+  const [movieCategory, setMovieCategory] = useState("popular");
 
   useEffect(() => {
     const fetchMovies = async () => {

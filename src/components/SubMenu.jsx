@@ -2,40 +2,47 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function SubMenu({ movieCategory, setMovieCategory }) {
-  const handleCategoryChange = (event) => {
-    const selectedCategory = event.target.value;
-    setMovieCategory(selectedCategory);
-  };
+  console.log(movieCategory);
   return (
     <>
-      <div className="#0a0b0d text-white flex items-center justify-between px-14 my-10">
-        <div>
-          {/* <button
+      <div className="#0a0b0d text-white  px-14 my-10">
+        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-start">
+          <button
             onClick={() => setMovieCategory("popular")}
-            className="md:text-base lg:text-lg hover:text-red-500 cursor-pointer md:p-0 md:mr-4 p-2 lg:mr-16"
+            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
+              movieCategory === "popular" ? "border-b-2 border-red-700" : null
+            }`}
           >
             Popular
           </button>
           <button
             onClick={() => setMovieCategory("top_rated")}
-            className="md:text-base lg:text-lg hover:text-red-500   cursor-pointer md:p-0 md:mr-4  p-2 lg:mr-16"
+            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
+              movieCategory === "top_rated" ? "border-b-2 border-red-700" : null
+            }`}
           >
             Top Rated
           </button>
           <button
             onClick={() => setMovieCategory("now_playing")}
-            className="md:text-base lg:text-lg hover:text-red-500   cursor-pointer md:mr-4 lg:mr-16 md:p-0  p-2"
+            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
+              movieCategory === "now_playing"
+                ? "border-b-2 border-red-700"
+                : null
+            }`}
           >
             Now Playing
           </button>
           <button
             onClick={() => setMovieCategory("upcoming")}
-            className="md:text-base lg:text-lg hover:text-red-500   cursor-pointer md:mr-4 mr-16 md:p-0 p-2"
+            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
+              movieCategory === "upcoming" ? "border-b-2 border-red-700" : null
+            }`}
           >
             Upcoming
-          </button> */}
+          </button>
 
-          <label
+          {/* <label
             className="text- md:text-xl lg:text-2xl mr-6 "
             htmlFor="movie-category"
           >
@@ -54,15 +61,16 @@ function SubMenu({ movieCategory, setMovieCategory }) {
             <option value="now_playing">Top Rated</option>
             <option value="upcoming">Up coming</option>
           </select>
-        </div>
-        {/* <input
+        </div> */}
+          {/* <input
           className="w-[20%] p-2 py-1 ml-16 rounded"
           placeholder="Search..."
           type="text"
         /> */}
-        <Link to="/favourites">
-          <button>Go favs</button>
-        </Link>
+          <Link to="/favourites">
+            <button>Go favs</button>
+          </Link>
+        </div>
       </div>
     </>
   );
