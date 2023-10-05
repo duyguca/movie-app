@@ -6,3 +6,120 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #0a0b0d;
 }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+   padding-left: 50px;
+   height: 75px;
+   
+}
+
+.navbar .navbar-logo, navbar-logo-link {
+      min-width: 200px;
+      height: auto;
+      cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+li {
+  float: right;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.active {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.tmbd-logo{
+  max-width: 200px;
+  height:auto;
+  margin-bottom: 50px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Center vertically */
+  align-items: center;
+  /* Center horizontally */
+  height: 100vh;
+  /* Full viewport height */
+  color: white;
+  padding: 2rem;
+}
+
+.about-content {
+  text-align: center;
+  /* Center the text within the container */
+  margin-bottom: 3rem;
+  /* Add some spacing between the content and the image */
+  
+}
+.about-us{
+  max-width:60%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.about-us2{
+  max-width: 60%;
+}
+
+.footer {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0px;
+
+}
+
+.footer-logo-link {
+  min-width: 200px;
+  height: auto;
+  cursor: pointer;
+  padding: 1rem;
+} 
+ul.footer-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.footer .active{
+  background-color: #0a0b0d;
+  color: white;
+}
+
+li a{
+padding: 3px;
+background-color: none;
+font-size: 1rem;
+}
+
+@media (min-with: 768px) {
+
+}
