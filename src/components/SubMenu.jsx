@@ -1,75 +1,79 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Search from "./Search";
 
-function SubMenu({ movieCategory, setMovieCategory }) {
-  console.log(movieCategory);
+function SubMenu({ movieCategory, setMovieCategory, setFilteredMovies }) {
   return (
     <>
       <div className="#0a0b0d text-white  px-14 my-10">
-        <div className="flex flex-col items-center justify-center sm:flex-row sm:justify-start">
-          <button
-            onClick={() => setMovieCategory("popular")}
-            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
-              movieCategory === "popular" ? "border-b-2 border-red-700" : null
-            }`}
-          >
-            Popular
-          </button>
-          <button
-            onClick={() => setMovieCategory("top_rated")}
-            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
-              movieCategory === "top_rated" ? "border-b-2 border-red-700" : null
-            }`}
-          >
-            Top Rated
-          </button>
-          <button
-            onClick={() => setMovieCategory("now_playing")}
-            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
-              movieCategory === "now_playing"
-                ? "border-b-2 border-red-700"
-                : null
-            }`}
-          >
-            Now Playing
-          </button>
-          <button
-            onClick={() => setMovieCategory("upcoming")}
-            className={`sm:text-xs md:text-base lg:text-lg hover:border-b-2 border-red-700  cursor-pointer  sm:mr-16 ${
-              movieCategory === "upcoming" ? "border-b-2 border-red-700" : null
-            }`}
-          >
-            Upcoming
-          </button>
+        <div className="flex flex-col items-center justify-between sm:flex-row sm:justify-start">
+          <div className="relative group mr-20 ml-4">
+            <button
+              onClick={() => setMovieCategory("popular")}
+              className={` block mb-1 text-white text-lg  ${
+                movieCategory === "popular" ? "border-b-2 border-red-700" : null
+              }`}
+            >
+              Popular
+            </button>
+            <span
+              className={`inline-block w-0 h-[4px] bg-red-700 absolute left-0 bottom-0 duration-700 group-hover:w-full ease-in-out `}
+            ></span>
+          </div>
+          <div className="relative group mr-20">
+            <button
+              onClick={() => setMovieCategory("top_rated")}
+              className={` block mb-1 text-white text-lg ${
+                movieCategory === "top_rated"
+                  ? "border-b-2 border-red-700"
+                  : null
+              }`}
+            >
+              Top Rated
+            </button>
+            <span
+              className={`inline-block w-0 h-[4px] bg-red-700 absolute left-0 bottom-0 duration-700 group-hover:w-full ease-in-out `}
+            ></span>
+          </div>
 
-          {/* <label
-            className="text- md:text-xl lg:text-2xl mr-6 "
-            htmlFor="movie-category"
-          >
-            Movie Category :
-          </label>
+          <div className="relative group mr-20">
+            <button
+              onClick={() => setMovieCategory("now_playing")}
+              className={` block mb-1 text-white text-lg  ${
+                movieCategory === "now_playing"
+                  ? "border-b-2 border-red-700"
+                  : null
+              }`}
+            >
+              Now Playing
+            </button>
+            <span
+              className={`inline-block w-0 h-[4px] bg-red-700 absolute left-0 bottom-0 duration-700 group-hover:w-full ease-in-out `}
+            ></span>
+          </div>
+          <div className="relative group mr-20">
+            <button
+              onClick={() => setMovieCategory("upcoming")}
+              className={` block mb-1 text-white text-lg  ${
+                movieCategory === "upcoming"
+                  ? "border-b-2 border-red-700"
+                  : null
+              }`}
+            >
+              Upcoming
+            </button>
+            <span
+              className={`inline-block w-0 h-[4px] bg-red-700 absolute left-0 bottom-0 duration-700 group-hover:w-full ease-in-out `}
+            ></span>
+          </div>
 
-          <select
-            className="text-black px-4 py-2 rounded text-center"
-            id="movie-category"
-            value={movieCategory}
-            onChange={handleCategoryChange}
-            placeholder="Popular"
-          >
-            <option value="top_rated">Now Playing</option>
-            <option value="popular"> Popular</option>
-            <option value="now_playing">Top Rated</option>
-            <option value="upcoming">Up coming</option>
-          </select>
-        </div> */}
-          {/* <input
-          className="w-[20%] p-2 py-1 ml-16 rounded"
-          placeholder="Search..."
-          type="text"
-        /> */}
-          <Link to="/favourites">
-            <button>Go favs</button>
-          </Link>
+          <div>
+            {" "}
+            <Link to="/favourites">
+              <button>Go favs</button>
+            </Link>
+            <Search setFilteredMovies={setFilteredMovies} />
+          </div>
         </div>
       </div>
     </>

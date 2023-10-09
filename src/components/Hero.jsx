@@ -32,23 +32,26 @@ console.log('i am here', movies)
 
   const renderSlides = (movies) => {
     return movies?.slice(0, 5).map((movie, i) => (
-      <div
-        key={movie.id}
-        className="w-full h-[400px] cursor-pointer relative overflow-hidden"
-      >
-        <Link to={`/movie/${movie.id}`}>
+      <Link to={`/movie/${movie.id}`}>
+        <div
+          key={movie.id}
+          className="w-full h-[400px] cursor-pointer relative overflow-hidden "
+        >
+          <p className="absolute top-0 left-0 z-[9999]">Duygu</p>
+
           <img
             className="w-full h-full object-cover "
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             alt={movie.title}
           />
-        </Link>
-        <div className="w-full h-[400px] bg-black absolute top-0 left-0 opacity-40"></div>
-        <h2 className="text-6xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-1000 ">
-          {" "}
-          {movie.title}
-        </h2>
-      </div>
+
+          <div className="w-full h-[400px] bg-black absolute top-0 left-0 opacity-40"></div>
+          <h2 className="text-6xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-1000 ">
+            {" "}
+            {movie.title}
+          </h2>
+        </div>
+      </Link>
     ));
   };
 
