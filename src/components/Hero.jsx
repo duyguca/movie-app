@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import { getPopularMovies } from "../api";
 import { IoIosArrowBack } from "react-icons/io";
@@ -28,6 +28,7 @@ function Hero() {
     };
     fetchPopularMovies();
   }, []);
+console.log('i am here', movies)
 
   const renderSlides = (movies) => {
     return movies?.slice(0, 5).map((movie, i) => (
@@ -75,6 +76,7 @@ function Hero() {
           </button>
           {movies.slice(0, 5).map((_, i) => (
             <button
+            key={i}
               className={`bg-bg-primary border border-white-600 w-2 h-2 hover:bg-white mb-3 hover:scale-200 cursor-pointer p-1 m-3 text-center rounded text-xl transition duration-150 ease-out hover:ease-in ${
                 currentIndex === i ? "bg-white" : "bg-transparent"
               }`}
