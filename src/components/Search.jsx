@@ -10,14 +10,15 @@ const Search = ({ setFilteredMovies }) => {
     const movieData = await getSearchMovie(searchKey);
     console.log({ movieData });
     setFilteredMovies([...movieData.results]);
+    setSearchKey("");
   };
 
   return (
-    <div>
+    <div className="hidden md:block ">
       <form onSubmit={searchMovies}>
         <input
           onChange={(e) => setSearchKey(e.target.value)}
-          className=" text-sm py-1 px-2 rounded-sm text-black"
+          className=" w-[200px] text-sm py-1 px-2 rounded-sm text-black"
           type="text"
           placeholder="Enter a movie..."
           value={searchKey}

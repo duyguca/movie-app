@@ -33,10 +33,10 @@ function SinglePage() {
       </div>
 
       <div className="text-white  mx-auto max-w-[75rem] my-16 ">
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center justify-center">
           <div>
             <img
-              className="max-w-[300px] object-fill "
+              className="hidden md:block max-w-[300px] object-fill "
               src={`https://image.tmdb.org/t/p/original/${currentMovie?.poster_path}`}
               alt={currentMovie?.title}
             />

@@ -1,6 +1,6 @@
 import React from "react";
-import FilteredMovies from "./FilteredMovies";
-import Hero from "./Hero";
+import FilteredMovies from "../components/FilteredMovies";
+import Hero from "../components/Hero";
 
 function Home() {
   return (
