@@ -3,9 +3,9 @@ import Search from "./Search";
 
 function SubMenu({ movieCategory, setMovieCategory, setFilteredMovies }) {
   return (
-    <div className="flex justify-between items-center md:pr-14">
-      <div className="w-full px-4 grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-1  md:pl-14 justify-items-stretch ">
-        <div className="relative group w-full justify-self-center">
+    <div className="flex justify-between items-center px-4 md:px-8 lg:px-14">
+      <div className="w-[600px] flex gap-8 md:gap-16 flex-wrap">
+        <div className="relative group w-max">
           <button
             onClick={() => setMovieCategory("popular")}
             className={`block text-white text-lg group-hover:border-b-red-700 m-auto`}
@@ -22,7 +22,7 @@ function SubMenu({ movieCategory, setMovieCategory, setFilteredMovies }) {
         <div className="relative group w-max">
           <button
             onClick={() => setMovieCategory("top_rated")}
-            className={`block  text-white text-lg group-hover:border-b-red-700 m-auto`}
+            className={`block text-white text-lg group-hover:border-b-red-700 m-auto`}
           >
             Top Rated
           </button>
@@ -33,11 +33,10 @@ function SubMenu({ movieCategory, setMovieCategory, setFilteredMovies }) {
             }`}
           ></span>
         </div>
-
         <div className="relative group w-max">
           <button
             onClick={() => setMovieCategory("now_playing")}
-            className={`block m-auto text-white text-lg group-hover:border-b-red-700`}
+            className={`block text-white text-lg group-hover:border-b-red-700 m-auto`}
           >
             Now Playing
           </button>
@@ -51,7 +50,7 @@ function SubMenu({ movieCategory, setMovieCategory, setFilteredMovies }) {
         <div className="relative group w-max">
           <button
             onClick={() => setMovieCategory("upcoming")}
-            className={`block  text-white text-lg group-hover:border-b-red-700`}
+            className={`block text-white text-lg group-hover:border-b-red-700 m-auto`}
           >
             Upcoming
           </button>

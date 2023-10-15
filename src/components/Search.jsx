@@ -8,7 +8,6 @@ const Search = ({ setFilteredMovies }) => {
     e.preventDefault();
 
     const movieData = await getSearchMovie(searchKey);
-    console.log({ movieData });
     setFilteredMovies([...movieData.results]);
     setSearchKey("");
   };

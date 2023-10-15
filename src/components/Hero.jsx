@@ -28,7 +28,6 @@ function Hero() {
     };
     fetchPopularMovies();
   }, []);
-  console.log("i am here", movies);
 
   const renderSlides = (movies) => {
     return movies?.slice(0, 5).map((movie, i) => (

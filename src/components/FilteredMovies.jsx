@@ -27,8 +27,6 @@ function FilteredMovies() {
     fetchMovies();
   }, [movieCategory]);
 
-  console.log(filteredMovies);
-
   return (
     <div>
       <SubMenu

@@ -2,18 +2,13 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { TfiClose } from "react-icons/tfi";
-
 import Logo from "./Logo";
-
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
-  console.log({ menuOpen });
 
   return (
     <header className="p-0 flex items-center justify-between md:px-14 ">
@@ -88,5 +83,4 @@ const NavBar = () => {
     </header>
   );
 };
-
 export default NavBar;
