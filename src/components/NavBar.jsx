@@ -9,7 +9,7 @@ const NavBar = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  console.log({ menuOpen });
+
   return (
     <header className="p-0 flex items-center justify-between md:px-14 ">
       <Link to="/">

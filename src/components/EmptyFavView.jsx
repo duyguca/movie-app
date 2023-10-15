@@ -1,19 +1,23 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const EmptyFavView = () => {
   return (
-    <div className="w-full h-900px bg-#0a0b0d ">
-        <div className="max-w-[70rem] mx-auto text-white flex flex-col items-center justify-center my-[13rem] ">
-            <h1 className="uppercase font-bold text-7xl pb-6">Whoops!</h1>
-            <p className="w-[500px] text-center text-lg font-base p-2">
-                "Sorry, you haven't favorited any movies. Please return to the homepage to add a favorite movie."
-            </p>
-            <p className="text-sm font-light p-2">To get started, go to a movie's individual page to click on the heart icon for the movies you like and add it to your collection!</p>
-        </div>
-
-      
+    <div className="bg-#0a0b0d  max-w-[max-content] lg:w-[1000px] mx-auto text-white flex flex-col items-center justify-center my-[13rem] ">
+      <h1 className="uppercase font-base text-3xl pb-6">Whoops!</h1>
+      <p className=" text-center text-lg font-extralight px-4 leading-10">
+        "Sorry, you haven't favorited any movies. Please return to the{" "}
+        <Link className="border-b-[1px]" to="/">
+          homepage
+        </Link>{" "}
+        to add a favorite movie."
+      </p>
+      <p className="text-md font-extralight px-4 leading-10">
+        To get started, go to a movie's individual page to click on the heart
+        icon for the movies you like and add it to your collection!
+      </p>
     </div>
-  )
-}
+  );
+};
 
 export default EmptyFavView;

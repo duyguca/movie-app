@@ -28,27 +28,27 @@ function Hero() {
     };
     fetchPopularMovies();
   }, []);
-console.log('i am here', movies)
 
   const renderSlides = (movies) => {
     return movies?.slice(0, 5).map((movie, i) => (
-      <div
-        key={movie.id}
-        className="w-full h-[400px] cursor-pointer relative overflow-hidden"
-      >
-        <Link to={`/movie/${movie.id}`}>
+      <Link to={`/movie/${movie.id}`}>
+        <div
+          key={movie.id}
+          className="w-full h-[400px] cursor-pointer relative overflow-hidden "
+        >
           <img
             className="w-full h-full object-cover "
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             alt={movie.title}
           />
-        </Link>
-        <div className="w-full h-[400px] bg-black absolute top-0 left-0 opacity-40"></div>
-        <h2 className="text-6xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-1000 ">
-          {" "}
-          {movie.title}
-        </h2>
-      </div>
+
+          <div className="w-full h-[400px] bg-black absolute top-0 left-0 opacity-40"></div>
+          <h2 className="text-3xl  md:text-6xl font-bold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white z-1000 ">
+            {" "}
+            {movie.title}
+          </h2>
+        </div>
+      </Link>
     ));
   };
 
@@ -76,7 +76,7 @@ console.log('i am here', movies)
           </button>
           {movies.slice(0, 5).map((_, i) => (
             <button
-            key={i}
+              key={i}
               className={`bg-bg-primary border border-white-600 w-2 h-2 hover:bg-white mb-3 hover:scale-200 cursor-pointer p-1 m-3 text-center rounded text-xl transition duration-150 ease-out hover:ease-in ${
                 currentIndex === i ? "bg-white" : "bg-transparent"
               }`}

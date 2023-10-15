@@ -27,13 +27,12 @@ function FilteredMovies() {
     fetchMovies();
   }, [movieCategory]);
 
-  // console.log({ movieCategory });
-
   return (
     <div>
       <SubMenu
         movieCategory={movieCategory}
         setMovieCategory={setMovieCategory}
+        setFilteredMovies={setFilteredMovies}
       />
       <MovieGrid filteredMovies={filteredMovies} />
     </div>
